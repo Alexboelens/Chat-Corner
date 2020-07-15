@@ -133,7 +133,13 @@
                 ','               #friend_array
                 )");
 
+            array_push($error_array, "<span style='color: green'>Register Success</span><br>");
 
+            // empty the input fields after registering
+            $_SESSION['reg_fname'] = "";
+            $_SESSION['reg_lname'] = "";
+            $_SESSION['reg_email'] = "";
+            $_SESSION['reg_email2'] = "";
 
         }
     }
@@ -193,6 +199,9 @@
             else if(in_array("Your password must be between 5 and 30 characters<br>", $error_array)) echo "Your password must be between 5 and 30 characters<br>"; ?>
 
             <input type="submit" name="register_button" value="Register">
+            <br>
+
+            <?php if(in_array("<span style='color: green'>Register Success</span><br>", $error_array)) echo "<span style='color: green'>Register Success</span><br>"; ?>
         </form>
 
 </body>
