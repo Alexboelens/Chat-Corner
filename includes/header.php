@@ -31,7 +31,7 @@
         </div>
 
         <nav>
-          <a href="#">
+          <a href="<?php echo $userLoggedIn ?>">
             <?php echo $user['first_name'] ?>
           </a>
           <a href="index.php"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a>
@@ -43,6 +43,9 @@
     </div>
 
     <div class="wrapper">
+        
+
+           
 
    
 
