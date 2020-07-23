@@ -1,7 +1,16 @@
 <?php
     include "includes/header.php";
+    include "includes/classes/User.php";
+    include "includes/classes/Post.php";
+
+    if(isset($_POST['post'])){
+        $post = new Post($db, $userLoggedIn);
+        $post->submitPost($_POST['post_text'], 'none');
+        header("Location: index.php"); //redirect to same page to stop the form re-submission
+    }
 
 ?>
+
     <div class="column-1">        
         <div class="user_details column">
             <a href="<?php echo $userLoggedIn ?>"><img src="<?php echo $user['profile_pic']; ?>" alt="profile_pic"></a>
@@ -10,7 +19,7 @@
                 <a href="<?php echo $userLoggedIn ?>"><?php echo $user['first_name'] . " " . $user['last_name']; ?></a>
                 <br>
                 <?php echo "Posts: " . $user['num_posts'] . "<br>"; 
-                    echo "Likes: " .$user['num_likes'];
+                    echo "Likes: " . $user['num_likes'];
                 ?>
             </div>
         </div>
@@ -22,13 +31,17 @@
                 <input type="submit" name="post" id="post_button" value="Post" class="btn-lg btn-primary">
                 <br>
             </form>
+
+<?php   
+    $post = new Post($db, $userLoggedIn); 
+    $post->loadPostsFriends(); 
+?>
+
+
         </div>
     </div>  
-
-
-
         <!-- end wrapper -->
-    </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

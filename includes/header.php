@@ -39,6 +39,7 @@
           <a href="#"><i class="fa fa-bell-o fa-lg" aria-hidden="true"></i></a>
           <a href="#"><i class="fa fa-users fa-lg" aria-hidden="true"></i></a>
           <a href="#"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></a>
+          <a href="includes/handlers/logout.php"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
         </nav>
     </div>
 
